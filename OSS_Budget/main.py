@@ -10,6 +10,9 @@ def main():
         print("2. 지출 목록 보기")
         print("3. 총 지출 보기")
         print("4. 종료")
+        print("4. 지출유형통계")  # 신규 증가
+        print("5. 월별 지출 통계")  # 신규 증가
+        print("6. 지출 내역을 검색하다")  # 신규 증가
         choice = input("선택 > ")
 
         if choice == "1":
@@ -27,7 +30,20 @@ def main():
 
         elif choice == "3":
             budget.total_spent()
+            
+        elif choice == "4":
+            budget.category_summary()
 
+        elif choice == "5":
+            budget.monthly_summary()
+
+        elif choice == "6":
+            keyword = input("검색어를 입력하세요: ").strip()
+            if keyword:
+                budget.search_expenses(keyword)
+            else:
+                print("키워드는 비어 있으면 안 됩니다.\n")
+                
         elif choice == "4":
             print("가계부를 종료합니다.")
             break
